@@ -19,6 +19,7 @@ public class InputManager : MonoBehaviour {
     List<int> iInputSequence;
 
     public GameManager gamemanager;
+    
 
     void Start() {
         strMessage = "";
@@ -35,6 +36,7 @@ public class InputManager : MonoBehaviour {
                 fDownTime = 0f;
                 isDown = true;
                 isTranslated = false;
+                gamemanager.soundeffects.SoundOriginal.Play();
 //                translateUpTime();
             }
 
@@ -44,6 +46,7 @@ public class InputManager : MonoBehaviour {
                 translateDownTime();
                 isDown = false;
                 fUpTime = 0f;
+                gamemanager.soundeffects.SoundOriginal.Stop();
 
             }
             
@@ -87,6 +90,7 @@ public class InputManager : MonoBehaviour {
         if (iInputSequence.Count > 0) {
             char chValue = gamemanager.sequencemanager.getValue(iInputSequence);
             strMessage += "(" + chValue + ")";
+            gamemanager.board.selectRowColumn(chValue);
             isTranslated = true;
         }
 

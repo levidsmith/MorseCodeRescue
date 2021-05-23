@@ -7,10 +7,12 @@ public class GameManager : MonoBehaviour {
 
     public SequenceManager sequencemanager;
     public InputManager inputmanager;
+    public SoundEffects soundeffects;
 
     public GameObject BoardPrefab;
     [HideInInspector]
     public Board board;
+
 
     void Start() {
         setupGame();
@@ -19,6 +21,8 @@ public class GameManager : MonoBehaviour {
 
     private void setupGame() {
         board = Instantiate(BoardPrefab, Vector3.zero, Quaternion.identity).GetComponent<Board>();
+        board.gamemanager = this;
+        board.setupBoard();
 
     }
 

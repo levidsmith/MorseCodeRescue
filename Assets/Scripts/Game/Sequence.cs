@@ -33,5 +33,9 @@ public class Sequence{
         return chLetter;
     }
 
+    public List<int> getSequence() {
+        return iSequence;
+    }
+
 
 }

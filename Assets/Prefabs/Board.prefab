@@ -45,3 +45,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CellPrefab: {fileID: 7027741136077009329, guid: 9992650dc40c2f6449e6b66bad9453f9, type: 3}
   RowColumnLabelPrefab: {fileID: 1638438907477242214, guid: d7d49aa2044bdcb48b254a9cd15e3c5c, type: 3}
+  RescuePrefab: {fileID: 4817776683044562507, guid: c927ea5f2c6289246ba647b3d1c837d7, type: 3}
