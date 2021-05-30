@@ -11,9 +11,13 @@ public class RowColumnLabel : MonoBehaviour {
 
     public bool isSelected;
     public Image imgBkg;
+    private Color colorDefault;
+    private Color colorSelected;
 
     void Start() {
         isSelected = false;
+        colorDefault = imgBkg.color;
+        colorSelected = Color.red;
         
     }
 
@@ -30,9 +34,9 @@ public class RowColumnLabel : MonoBehaviour {
     public void setSelected(bool in_isSelected) {
         isSelected = in_isSelected;
         if (isSelected) {
-            imgBkg.color = Color.red;
+            imgBkg.color = colorSelected;
         } else {
-            imgBkg.color = Color.blue;
+            imgBkg.color = colorDefault;
         }
 
     }

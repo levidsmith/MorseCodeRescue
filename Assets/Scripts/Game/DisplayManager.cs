@@ -12,6 +12,9 @@ public class DisplayManager : MonoBehaviour {
 
     public GameManager gamemanager;
 
+    public GameObject panelLevelComplete;
+    public GameObject panelGameOver;
+
     void Start() {
         
     }
@@ -21,5 +24,14 @@ public class DisplayManager : MonoBehaviour {
         TextUpTime.text = string.Format("{0:0.00}", gamemanager.inputmanager.fUpTime);
         TextMessage.text = gamemanager.inputmanager.strMessage;
 
+    }
+
+    public void showLevelComplete() {
+        panelLevelComplete.SetActive(true);
+
+    }
+
+    public void showGameOver() {
+        panelGameOver.SetActive(true);
     }
 }

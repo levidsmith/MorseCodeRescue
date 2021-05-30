@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\Game\SequenceManager.cs" />
     <Compile Include="Assets\Scripts\Game\RowColumnLabel.cs" />
     <Compile Include="Assets\Scripts\Game\Rescue.cs" />
+    <Compile Include="Assets\Scripts\Game\Heli.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

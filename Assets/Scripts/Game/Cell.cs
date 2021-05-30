@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Cell : MonoBehaviour {
+
+    public int iRow, iCol;
     void Start() {
         
     }

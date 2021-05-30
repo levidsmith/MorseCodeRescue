@@ -30,6 +30,12 @@ public class InputManager : MonoBehaviour {
     }
 
     void Update() {
+        if (gamemanager.isPlaying) {
+            handleInput();
+        }
+    }
+
+    public void handleInput() { 
         if (Input.GetButtonDown("Submit")) {
             Debug.Log("Button down");
             if (!isDown) {
