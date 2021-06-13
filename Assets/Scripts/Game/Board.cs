@@ -129,6 +129,7 @@ public class Board : MonoBehaviour {
         for (i = 0; i < iRescueCount; i++) {
             if (cellsAvailable.Count > 0) {
                 Cell randCell = cellsAvailable[Random.Range(0, cellsAvailable.Count)];
+                cellsAvailable.Remove(randCell);
                 Rescue rescue = Instantiate(RescuePrefab, new Vector3(randCell.transform.position.x, 0f, randCell.transform.position.z), Quaternion.identity).GetComponent<Rescue>();
                 rescues.Add(rescue);
             }
@@ -136,19 +137,11 @@ public class Board : MonoBehaviour {
 
 
 
-            /*
-            for (i = 0; i < iRescueCount; i++) {
-                iRandRow = Random.Range(0, iRows);
-                iRandCol = Random.Range(0, iCols);
-                Rescue rescue = Instantiate(RescuePrefab, new Vector3(iRandRow, 0f, iRandCol), Quaternion.identity).GetComponent<Rescue>();
-                rescues.Add(rescue);
-            }
-            */
-        }
+    }
 
 
 
-        void Update() {
+    void Update() {
         
     }
 
