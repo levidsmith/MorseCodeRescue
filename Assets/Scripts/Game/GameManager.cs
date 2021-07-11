@@ -53,4 +53,13 @@ public class GameManager : MonoBehaviour {
         displaymanager.showGameOver();
         isPlaying = false;
     }
+
+    public void doNextLevel() {
+        Debug.Log("doNextLevel");
+        displaymanager.hideLevelComplete();
+        heli.setupHeli();
+        board.restart();
+        isPlaying = true;
+
+    }
 }

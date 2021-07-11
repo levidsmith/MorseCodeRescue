@@ -31,6 +31,11 @@ public class DisplayManager : MonoBehaviour {
 
     }
 
+    public void hideLevelComplete() {
+        panelLevelComplete.SetActive(false);
+
+    }
+
     public void showGameOver() {
         panelGameOver.SetActive(true);
     }

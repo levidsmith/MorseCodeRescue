@@ -36,8 +36,8 @@ public class InputManager : MonoBehaviour {
     }
 
     public void handleInput() { 
-        if (Input.GetButtonDown("Submit")) {
-            Debug.Log("Button down");
+        if (Input.GetButtonDown("Fire")) {
+//            Debug.Log("Button down");
             if (!isDown) {
                 fDownTime = 0f;
                 isDown = true;
@@ -46,8 +46,8 @@ public class InputManager : MonoBehaviour {
 //                translateUpTime();
             }
 
-        } else if (Input.GetButtonUp("Submit")) {
-            Debug.Log("Button up");
+        } else if (Input.GetButtonUp("Fire")) {
+//            Debug.Log("Button up");
             if (isDown) {
                 translateDownTime();
                 isDown = false;

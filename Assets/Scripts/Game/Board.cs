@@ -21,6 +21,11 @@ public class Board : MonoBehaviour {
         
     }
 
+    public void restart() {
+        clearBoard();
+        setupBoard();
+    }
+
     public void setupBoard() {
         iRows = 5;
         iCols = 5;
@@ -73,6 +78,7 @@ public class Board : MonoBehaviour {
             Vector3 pos = new Vector3(fOffsetX, 0f, fOffsetZ - i);
 
             RowColumnLabel rowcolumnlabel = Instantiate(RowColumnLabelPrefab, pos, Quaternion.identity).GetComponent<RowColumnLabel>();
+            rowcolumnlabel.transform.SetParent(this.transform);
 
             int iCh;
             iCh = (((int)'0') + i) + iRand;
@@ -96,6 +102,7 @@ public class Board : MonoBehaviour {
             Vector3 pos = new Vector3(fOffsetX + j, 0f, fOffsetZ);
 
             RowColumnLabel rowcolumnlabel = Instantiate(RowColumnLabelPrefab, pos, Quaternion.identity).GetComponent<RowColumnLabel>();
+            rowcolumnlabel.transform.SetParent(this.transform);
             int iCh;
             iCh = (((int)'A') + j) + iRand;
             if (iCh > (int) 'Z') {
@@ -131,6 +138,7 @@ public class Board : MonoBehaviour {
                 Cell randCell = cellsAvailable[Random.Range(0, cellsAvailable.Count)];
                 cellsAvailable.Remove(randCell);
                 Rescue rescue = Instantiate(RescuePrefab, new Vector3(randCell.transform.position.x, 0f, randCell.transform.position.z), Quaternion.identity).GetComponent<Rescue>();
+                rescue.transform.SetParent(this.transform);
                 rescues.Add(rescue);
             }
         }
@@ -275,6 +283,16 @@ public class Board : MonoBehaviour {
         foreach (RowColumnLabel label in colLabels) {
             label.setSelected(false);
         }
+
+    }
+
+    private void clearBoard() {
+        //delete all children
+        int i;
+        for (i = 0; i < this.transform.childCount; i++) {
+            Destroy(this.transform.GetChild(i).gameObject);
+        }
+        
 
     }
 }

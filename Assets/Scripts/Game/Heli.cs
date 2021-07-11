@@ -44,6 +44,7 @@ public class Heli : MonoBehaviour {
         }
     }
 
+
     public void startRescue(Cell in_cell) {
         targetCell = in_cell;
 
