@@ -8,6 +8,7 @@ public class Board : MonoBehaviour {
     public GameObject CellPrefab;
     public GameObject RowColumnLabelPrefab;
     public GameObject RescuePrefab;
+    public GameObject FuelPrefab;
 
     public int iRows, iCols;
 
@@ -122,6 +123,39 @@ public class Board : MonoBehaviour {
 
     private void setupRescue() {
         int iRescueCount = 2;
+        int iFuelCount = 2;
+
+        switch (gamemanager.iLevel) {
+            case 0:
+                iRescueCount = 2;
+                iFuelCount = 2;
+                break;
+            case 1:
+                iRescueCount = 3;
+                iFuelCount = 2;
+                break;
+            case 2:
+                iRescueCount = 5;
+                iFuelCount = 2;
+                break;
+            case 3:
+                iRescueCount = 5;
+                iFuelCount = 1;
+                break;
+            case 4:
+                iRescueCount = 7;
+                iFuelCount = 1;
+                break;
+            case 5:
+                iRescueCount = 10;
+                iFuelCount = 0;
+                break;
+            default:
+                iRescueCount = 10;
+                iFuelCount = 0;
+                break;
+
+        }
 
         rescues = new List<Rescue>();
 
@@ -143,9 +177,23 @@ public class Board : MonoBehaviour {
             }
         }
 
+        for (i = 0; i < iFuelCount; i++) {
+            if (cellsAvailable.Count > 0) {
+                Cell randCell = cellsAvailable[Random.Range(0, cellsAvailable.Count)];
+                cellsAvailable.Remove(randCell);
+                Fuel fuel = Instantiate(FuelPrefab, new Vector3(randCell.transform.position.x, 0f, randCell.transform.position.z), Quaternion.identity).GetComponent<Fuel>();
+                fuel.transform.SetParent(this.transform);
 
 
+
+            }
+        }
+
+
+
+        
     }
+
 
 
 
@@ -245,6 +293,23 @@ public class Board : MonoBehaviour {
         }
 
         return rescueReturn;
+    }
+
+    public Fuel getFuel(Cell in_Cell) {
+        Fuel fuelReturn = null;
+        Fuel[] fuels = GetComponentsInChildren<Fuel>();
+
+        if (in_Cell != null) {
+            foreach(Fuel fuel in fuels) {
+                if (fuel.transform.position.x == in_Cell.transform.position.x &&
+                    fuel.transform.position.z == in_Cell.transform.position.z) {
+                    fuelReturn = fuel;
+                }
+            }
+
+
+        }
+        return fuelReturn;
     }
 
     /*

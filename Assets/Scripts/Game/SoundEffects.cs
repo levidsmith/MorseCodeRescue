@@ -6,4 +6,6 @@ using UnityEngine;
 public class SoundEffects : MonoBehaviour {
 
     public AudioSource SoundOriginal;
+    public AudioSource SoundPickup;
+    public AudioSource SoundFuel;
 }

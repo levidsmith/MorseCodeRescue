@@ -14,6 +14,8 @@ public class Heli : MonoBehaviour {
     public float fFuel;
     public Text TextFuel;
 
+    public float fMaxFuel = 20f;
+
     void Start() {
         targetCell = null;
         
@@ -71,8 +73,18 @@ public class Heli : MonoBehaviour {
         Rescue rescue = gamemanager.board.getRescue(in_Cell);
         if (rescue != null) {
             rescue.setRescued(true);
+            gamemanager.soundeffects.SoundPickup.Play();
 
         }
+
+        Fuel fuel = gamemanager.board.getFuel(in_Cell);
+        if (fuel != null) {
+            fuel.doPickup();
+            addFuel(10f);
+            gamemanager.soundeffects.SoundFuel.Play();
+
+        }
+
         gamemanager.board.resetSelectedRowCol();
         targetCell = null;
 
@@ -94,6 +106,13 @@ public class Heli : MonoBehaviour {
         posHome = new Vector3(-1f, 0f, gamemanager.board.iRows);
         transform.position = posHome;
         fFuel = 20f;
+    }
+
+    private void addFuel(float in_fAmount) {
+        fFuel += in_fAmount;
+        if (fFuel >= fMaxFuel) {
+            fFuel = fMaxFuel;
+        }
     }
 
 

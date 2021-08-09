@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour {
     public Heli heli;
 
     public bool isPlaying;
+    public int iLevel;
     
 
 
@@ -35,7 +36,8 @@ public class GameManager : MonoBehaviour {
         heli = Instantiate(HeliPrefab, Vector3.zero, Quaternion.identity).GetComponent<Heli>();
         heli.gamemanager = this;
         heli.setupHeli();
-        
+
+        iLevel = 0;
         isPlaying = true;
 
     }
@@ -57,6 +59,8 @@ public class GameManager : MonoBehaviour {
     public void doNextLevel() {
         Debug.Log("doNextLevel");
         displaymanager.hideLevelComplete();
+        iLevel++;
+
         heli.setupHeli();
         board.restart();
         isPlaying = true;

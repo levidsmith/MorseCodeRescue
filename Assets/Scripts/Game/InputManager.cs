@@ -92,16 +92,22 @@ public class InputManager : MonoBehaviour {
     }
 
     private void translateLetter() {
+        char chValue = '?';
 
         if (iInputSequence.Count > 0) {
-            char chValue = gamemanager.sequencemanager.getValue(iInputSequence);
-            strMessage += "(" + chValue + ")";
+            chValue = gamemanager.sequencemanager.getValue(iInputSequence);
+            //strMessage += "(" + chValue + ")";
             gamemanager.board.selectRowColumn(chValue);
-            isTranslated = true;
-        }
 
+        }
+        isTranslated = true;
 
         iInputSequence = new List<int>();
+
+        gamemanager.displaymanager.currentPanelInputMessage.strMessage = strMessage;
+        gamemanager.displaymanager.currentPanelInputMessage.strMessageTranslate = chValue.ToString();
+        strMessage = "";
+        gamemanager.displaymanager.createPanelInputMessage();
 
 
     }

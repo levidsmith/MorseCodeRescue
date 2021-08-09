@@ -63,9 +63,11 @@
     <Compile Include="Assets\Scripts\Game\Cell.cs" />
     <Compile Include="Assets\Scripts\Game\SoundEffects.cs" />
     <Compile Include="Assets\Scripts\Game\SequenceManager.cs" />
+    <Compile Include="Assets\Scripts\Game\Heli.cs" />
     <Compile Include="Assets\Scripts\Game\RowColumnLabel.cs" />
     <Compile Include="Assets\Scripts\Game\Rescue.cs" />
-    <Compile Include="Assets\Scripts\Game\Heli.cs" />
+    <Compile Include="Assets\Scripts\Game\Fuel.cs" />
+    <Compile Include="Assets\Scripts\Game\PanelInputMessage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
