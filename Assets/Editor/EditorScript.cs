@@ -11,6 +11,6 @@ public class EditorScript {
             }
         }
 
-        BuildPipeline.BuildPlayer(scenes.ToArray(), "build/DigmaniaWebGL", BuildTarget.WebGL, BuildOptions.None);
+        BuildPipeline.BuildPlayer(scenes.ToArray(), "build/MorseCodeRescueWebGL", BuildTarget.WebGL, BuildOptions.None);
     }
 }

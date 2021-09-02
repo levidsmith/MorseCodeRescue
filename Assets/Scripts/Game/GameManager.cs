@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
@@ -65,5 +66,9 @@ public class GameManager : MonoBehaviour {
         board.restart();
         isPlaying = true;
 
+    }
+
+    public void returnToTile() {
+        SceneManager.LoadScene("title");
     }
 }

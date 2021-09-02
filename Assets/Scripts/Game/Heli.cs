@@ -16,6 +16,8 @@ public class Heli : MonoBehaviour {
 
     public float fMaxFuel = 20f;
 
+    public Image imgFuel;
+
     void Start() {
         targetCell = null;
         
@@ -40,6 +42,8 @@ public class Heli : MonoBehaviour {
         }
 
         TextFuel.text = string.Format("{0:0.00}", fFuel);
+        float fFuelFractionRemain = 1f - (fFuel / fMaxFuel);
+        imgFuel.transform.localPosition = new Vector3(-fFuelFractionRemain, 0f, 0f);
 
         if (fFuel <= 0f) {
             gamemanager.doGameOver();
